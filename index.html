@@ -10,3 +10,57 @@
   <script src="main.bundle.js"></script>
 </body>
 </html>
+<!--
+// y coordinate tells row
+// x coordinate tells direction within row
+
+
+// var cube = function(id, upLeftId, upRightId, downLeftId, downRightId){
+//   this.active: false,
+//   this.id: id,
+//   this.upperLeft: upLeftId,
+//   this.upperRight: upRightId,
+//   this.lowerLeft: downLeftId,
+//   this.lowerRight: downRightId
+// };
+// var origin = new cube (0, null, null, blah, blah);
+// var cubes = []; -->
+
+
+row 1:
+  (originX, originY)
+
+row 3:
+  center: (originX, y = originY + (24*2))
+  left: (x = originX-(18*2), y)
+  right: (x = originX+(18*2), y)
+row 5:
+  center: (originX, y = originY+(24*4))
+  leftOne: (x = originX-(18*2), y)
+  leftTwo: (x = originX-(18*4), y)
+  rightOne: (x = originX+(18*2), y)
+  rightTwo: (x = originX+(18*4), y)
+row 7:
+  center: (originX, y = originY+(24*6))
+  leftOne: (x = originX-(18*2), y)
+  leftTwo: (x = originX-(18*4), y)
+  leftThree:(x = originX-(18*6), y)
+  rightOne: (x = originX+(18*2), y)
+  rightTwo: (x = originX+(18*4), y)
+  rightThree: (x = originX+(18*6), y)
+
+row 2:
+  (x = originX-18,  y = originY+24)
+  (x = originX+36,  y = originY+24)
+row 4:
+  (x = originX-18, y = originY+(24*3))
+  (x = originX-(18*3), y)
+  (x = originX+(18*2), y)
+  (x = originX+(18*3), y)
+row 6:
+  (x = originX-18, y = originY+(24*5))
+  (x = originX-(18*3), y)
+  (x = originX-(18*5), y)
+  (x = originX+(18*2), y)
+  (x = originX+(18*3), y)
+  (x = originX+(18*5), y)
