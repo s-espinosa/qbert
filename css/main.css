@@ -1,5 +1,15 @@
-canvas {
+#bgCanvas {
+	position: absolute;
   background-color: black;
   margin-left: 30%;
   margin-right: 30%;
+  z-index: 0;
+}
+
+#charCanvas {
+	position: absolute;
+  background-color: transparent;
+  margin-left: 30%;
+  margin-right: 30%;
+  z-index: 1;
 }
