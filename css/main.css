@@ -14,7 +14,7 @@
   z-index: 1;
 }
 
-#start-menu {
+#start-menu, #end-menu {
 	text-align: center;
 	color: white;
 	font-family: "ocr-a-std", monospace;
@@ -27,6 +27,10 @@
   z-index: 101;
 }
 
+#end-menu {
+  display: none;
+}
+
 #start-menu h1 {
 	font-size: 12em;
 }
@@ -36,18 +40,26 @@
 	line-height: 0;
 }
 
-#start-menu p {
+#start-menu p, #end-menu p {
 	font-size: 3em;
 }
 
-#start-button {
+#start-button, #restart-button {
 	line-height: 1em;
 	padding: 1px 40px;
-	width: 20%;
 	background-color: #ff66ff;
 	margin: 0 auto;
 }
 
-#start-button:hover {
+#start-button {
+  width: 20%;
+}
+
+#restart-button {
+  width: 40%;
+}
+
+#start-button:hover, #restart-button:hover {
 	cursor: pointer;
 }
+
