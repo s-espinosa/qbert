@@ -1,5 +1,6 @@
 var assert = require('chai').assert;
 var Qbert = require('../lib/qbert');
+var Board = require('../lib/board');
 
 describe('Qbert death', function(){
   var nullPosition = null;
@@ -14,15 +15,17 @@ describe('Qbert death', function(){
   });
 
   context('when position is null and number of lives is not zero', function(){
-    var params = {
-      lives: 2
-    };
-    var player = new Qbert(params);
 
+    var player = new Qbert({});
+    player.lives = 2;
     player.move(nullPosition);
 
     it('returns player to original position', function(){
       assert.equal(player.position, 0);
     });
+
+    it('deducts number of lives', function(){
+      assert.equal(player.lives, 1);
+    })
   });
 });
