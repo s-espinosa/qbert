@@ -13,3 +13,41 @@
   margin-right: 30%;
   z-index: 1;
 }
+
+#start-menu {
+	text-align: center;
+	color: white;
+	font-family: "ocr-a-std", monospace;
+	width: 900px;
+	height: 900px;
+	position: absolute;
+  background-color: black;
+  margin-left: 30%;
+  margin-right: 30%;
+  z-index: 101;
+}
+
+#start-menu h1 {
+	font-size: 12em;
+}
+
+#start-menu h2 {
+	font-size: 6em;
+	line-height: 0;
+}
+
+#start-menu p {
+	font-size: 3em;
+}
+
+#start-button {
+	line-height: 1em;
+	padding: 1px 40px;
+	width: 20%;
+	background-color: #ff66ff;
+	margin: 0 auto;
+}
+
+#start-button:hover {
+	cursor: pointer;
+}
