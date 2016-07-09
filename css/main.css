@@ -13,3 +13,53 @@
   margin-right: 30%;
   z-index: 1;
 }
+
+#start-menu, #end-menu {
+	text-align: center;
+	color: white;
+	font-family: "ocr-a-std", monospace;
+	width: 900px;
+	height: 900px;
+	position: absolute;
+  background-color: black;
+  margin-left: 30%;
+  margin-right: 30%;
+  z-index: 101;
+}
+
+#end-menu {
+  display: none;
+}
+
+#start-menu h1 {
+	font-size: 12em;
+}
+
+#start-menu h2 {
+	font-size: 6em;
+	line-height: 0;
+}
+
+#start-menu p, #end-menu p {
+	font-size: 3em;
+}
+
+#start-button, #restart-button {
+	line-height: 1em;
+	padding: 1px 40px;
+	background-color: #ff66ff;
+	margin: 0 auto;
+}
+
+#start-button {
+  width: 20%;
+}
+
+#restart-button {
+  width: 40%;
+}
+
+#start-button:hover, #restart-button:hover {
+	cursor: pointer;
+}
+
