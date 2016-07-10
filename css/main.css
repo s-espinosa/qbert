@@ -63,3 +63,16 @@
 	cursor: pointer;
 }
 
+#scoreboard {
+	text-align: center;
+	color: white;
+	border: solid green 2px;
+	font-family: "ocr-a-std", monospace;
+	width: 200px;
+	height: 100px;
+	position: absolute;
+  	background-color: black;
+  	margin: 5% 20% 80% 80%;
+  	z-index: 50;	
+}
+
