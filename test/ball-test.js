@@ -1,25 +1,54 @@
 var assert = require('chai').assert;
+var Cube = require('../lib/cube')
 var Ball = require('../lib/ball');
 
 describe('Ball', function(){
   context('when initialized', function(){
-    var ball = new Ball({});
+    var cube1 = new Cube({id: 0})
+    var cube2 = new Cube({id: 1})
+    var cube3 = new Cube({id: 2})
+    var board = {cubes: [cube1, cube2, cube3]}
+    var ball = new Ball({board: board});
 
     it('defaults to the top cube', function(){
-      assert.equal(ball.position, 0);
+      assert.equal(ball.currentPosition, 0);
     });
+
+    // it('reports its position by cube', function(){
+    //   assert.equal(ball.onCube().id, 0);
+    //   assert.ball.onCube instanceof Cube;
+    // });
+
+    it('defaults to alive', function(){
+      assert.equal(ball.alive, true);
+    });
+  
   }); 
 
-context('movement', function(){
-    var ball = new Ball({});
+// context('movement', function(){
+//   var cube1 = new Cube({id: 0, downLeftId: 1, downRightId: 2})
+//     var cube2 = new Cube({id: 1})
+//     var cube3 = new Cube({id: 2})
+//     var board = {cubes: [cube1, cube2, cube3]}
+//     var ball = new Ball({board: board, x: 0});
+//     var stub = sinon.stub(ball.onCube()).returns(cube1);
 
-    it('moves to the assigned cube', function(){
-      assert.equal(ball.position, 0);
+//     it('moves to the assigned cube', function(){
+//       assert.equal(ball.currentPosition, 0);
       
-      ball.move(12);
+//       ball.move();
+//       console.log(ball.currentPosition);
+//       assert([1,2].includes(ball.currentPosition), 'ball position is in second row');
+//     });
+//   });
 
-      assert.equal(ball.position, 12);
+  context('death', function(){
+    var ball = new Ball({})
+    it('sets alive to false when it dies', function(){
+      ball.die();
+      assert.equal(ball.alive, false);
     });
+
   });
 
 });

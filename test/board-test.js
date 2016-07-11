@@ -28,4 +28,18 @@ describe('Board', function(){
     });
   });
 
+  context('activating cubes', function(){
+    var board = new Board({});
+    board.initializeCubes();
+
+    it('activates cubes by id', function(){
+      assert.equal(board.cubes[5].active, false);
+
+      board.activateCube(5);
+
+      assert.equal(board.cubes[5].active, true);
+    });
+
+  });
+
 });
