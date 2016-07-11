@@ -14,4 +14,23 @@ describe('Qbert', function(){
     });
 
   });
+
+  // context('dying', function(){
+  //   var qbert = new Qbert({});
+
+  //   it('decrements lives when dying', function(){
+  //     assert.equal(qbert.lives, 3);
+      
+  //     qbert.die;
+  //     console.log(qbert.lives);
+  //     assert.equal(qbert.lives, 2);
+  //   });
+
+    // it('cannot decrement below 0', function(){
+    //   assert.equal(qbert.lives, 0)
+    //   qbert.die;
+    //   assert.equal(qbert.lives, 2);
+    // });
+
+  });
 });

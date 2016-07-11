@@ -1,4 +1,5 @@
 var assert = require('chai').assert;
+var sinon = require('sinon');
 var Cube = require('../lib/cube')
 var Ball = require('../lib/ball');
 
@@ -25,15 +26,19 @@ describe('Ball', function(){
   
   }); 
 
+//     beforeEach(function () {
+//       ball.onCube.returns(cube1);
+//     });
 // context('movement', function(){
 //   var cube1 = new Cube({id: 0, downLeftId: 1, downRightId: 2})
 //     var cube2 = new Cube({id: 1})
 //     var cube3 = new Cube({id: 2})
 //     var board = {cubes: [cube1, cube2, cube3]}
 //     var ball = new Ball({board: board, x: 0});
-//     var stub = sinon.stub(ball.onCube()).returns(cube1);
 
+    
 //     it('moves to the assigned cube', function(){
+//       console.log(ball.onCube())
 //       assert.equal(ball.currentPosition, 0);
       
 //       ball.move();
