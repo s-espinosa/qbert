@@ -44,7 +44,7 @@
 	font-size: 3em;
 }
 
-#start-button, #restart-button, #initials-button {
+#start-button, #restart-button {
 	line-height: 1em;
 	padding: 1px 40px;
 	background-color: #ff66ff;
@@ -78,12 +78,14 @@
 
 #initials-button {
 	background-color: #7b68ee;
+	color: white;
+	text-align: center;
 	width: 10%;
-}
-#initials {
-	border: 2px dotted;
+	line-height: 1em;
+	margin: 0 auto;
 }
 
-[contentEditable=true]:not(:focus)::before{
-  content:"Enter your initials before hitting record";
+#initials {
+	border: 2px dotted;
+	width: 
 }
