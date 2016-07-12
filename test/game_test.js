@@ -5,8 +5,6 @@ var sinon = require('sinon');
 
 describe('Game', function(){
   context('when initialized', function(){
-	// var document = sinon.stub();
-	// document.getElementById.withArgs('bgCanvas').returns(true);
     var ball = new Game({});
 
     it('instantiates with a board', function(){
