@@ -77,7 +77,13 @@
 }
 
 #initials-button {
-	padding: 1px 40px;*/
 	background-color: #7b68ee;
 	width: 10%;
+}
+#initials {
+	border: 2px dotted;
+}
+
+[contentEditable=true]:not(:focus)::before{
+  content:"Enter your initials before hitting record";
 }
