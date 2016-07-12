@@ -1,29 +1,34 @@
-#bgCanvas {
+body {
+	background-color: black;
+	font-family: "ocr-a-std", monospace;
+}
+
+#bgCanvas, #charCanvas, #start-menu, #end-menu {
+	display: block;
 	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+#bgCanvas {
   background-color: black;
-  margin-left: 30%;
-  margin-right: 30%;
   z-index: 0;
 }
 
 #charCanvas {
-	position: absolute;
   background-color: transparent;
-  margin-left: 30%;
-  margin-right: 30%;
   z-index: 1;
 }
 
 #start-menu, #end-menu {
+	background-color: black;
 	text-align: center;
 	color: white;
-	font-family: "ocr-a-std", monospace;
+	padding: 0;
 	width: 900px;
 	height: 900px;
-	position: absolute;
-  background-color: black;
-  margin-left: 30%;
-  margin-right: 30%;
+
   z-index: 101;
 }
 
@@ -63,16 +68,84 @@
 	cursor: pointer;
 }
 
+#heads-up-display {
+	background-color: transparent;
+	width: 900px;
+	height: 142px;
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
 #scoreboard {
 	text-align: center;
 	color: white;
-	border: solid green 2px;
+	border: solid green 1px;
 	font-family: "ocr-a-std", monospace;
 	width: 200px;
 	height: 100px;
-	position: absolute;
-  	background-color: black;
-  	margin: 5% 20% 80% 80%;
-  	z-index: 50;	
+	float: right;
+	background-color: black;
+	margin: 20px;
+	padding: 10px;
+	z-index: 50;
 }
 
+#bottom-display {
+	background-color: black;
+	border: 1px solid green;
+	width: 898px;
+	height: 186px;
+	display: block;
+	position: absolute;
+	top: 720px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 50;
+}
+
+#controls, #characters {
+	color: white;
+	float: left;
+	width: 409px;
+	padding: 20px;
+}
+
+#up, #down {
+	display: inline-block;
+}
+
+.label, .key {
+	float: left;
+	text-align: center;
+}
+
+.key {
+	height: 58px;
+	width: 68px;
+	border: 1px solid white;
+	padding-top: 10px;
+}
+
+.label {
+	height: 58px;
+	width: 120px;
+	padding-top: 10px;
+}
+
+.character-label, .character-images {
+	height: 58px;
+	padding-top: 10px;
+	float: left;
+}
+
+.character-label {
+	width: 200px;
+}
+
+#hero {
+	display: inline-block;
+}
