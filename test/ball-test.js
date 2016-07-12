@@ -1,5 +1,4 @@
 var assert = require('chai').assert;
-var sinon = require('sinon');
 var Cube = require('../lib/cube')
 var Ball = require('../lib/ball');
 
@@ -11,8 +10,8 @@ describe('Ball', function(){
     var board = {cubes: [cube1, cube2, cube3]}
     var ball = new Ball({board: board});
 
-    it('defaults to the top cube', function(){
-      assert.equal(ball.currentPosition, 0);
+    it('defaults to the second row of cubes', function(){
+      assert.include([1,2], ball.currentPosition);
     });
 
     it('defaults to alive', function(){
