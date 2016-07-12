@@ -15,11 +15,48 @@
   </div>
   <canvas id="bgCanvas" width="650" height="650"></canvas>
   <canvas id="charCanvas" width="650" height="650"></canvas>
-  <div id="scoreboard"></div>
- <div id="end-menu">
+  <div id="heads-up-display">
+    <div id="scoreboard">Score: 0</div>
+  </div>
+  <div id="end-menu">
     <h2>Game Over</h2>
     <div id="restart-button"><p>PLAY AGAIN</p></div>
   </div>
+  <div id='bottom-display'>
+    <div id='controls'>
+      <div id='up'>
+        <div class='label'><p>Up-Left</p></div>
+        <div id='t' class='key'><p>t</p></div>
+        <div id='y' class='key'><p>y</p></div>
+        <div class='label'><p>Up-Right</p></div>
+      </div>
+      <div id='down'>
+        <div class='label'><p>Down-Left</p></div>
+        <div id='g' class='key'><p>g</p></div>
+        <div id='h' class='key'><p>h</p></div>
+        <div class='label'><p>Down-Right</p></div>
+      </div>
+    </div>
+    <div id='characters'>
+      <div id='hero'>
+        <div class='character-label'>
+          <p>Qbert</p>
+        </div>
+        <div class='character-images'>
+          <img class="character-image" src="img/qbert.png" alt="qbert">
+        </div>
+      </div>
+      <div id='enemies'>
+        <div class='character-label'>
+          <p>Enemies</p>
+        </div>
+        <div class='character-images'>
+          <img class="character-image" src="img/ball.png" alt="ball">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="main.bundle.js"></script>
   <script src="https://use.typekit.net/ocl5vgd.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
