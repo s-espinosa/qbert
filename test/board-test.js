@@ -1,6 +1,9 @@
 var assert = require('chai').assert;
 var sinon = require('sinon');
 var Board = require('../lib/board');
+var Score = require('../lib/score');
+var Cube = require('../lib/cube');
+var Game = require('../lib/game');
 
 describe('Board', function(){
   context('when initialized', function(){
@@ -30,8 +33,16 @@ describe('Board', function(){
   });
 
   context('activating cubes', function(){
-    var board = new Board({score: {total: 0}});
-   
+    var score = new Score();
+    var board = new Board({score: score});
+    board.initializeCubes();
+    sinon.stub(Cube.prototype, "drawCube").returns(true);
+
+    assert.equal(board.cubes[14].active, false);
+
+    board.activateCube(14);
+
+    assert.equal(board.cubes[14].active, true);
   });
 
 });

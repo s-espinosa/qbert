@@ -1,29 +1,36 @@
-#bgCanvas {
+body {
+	background-color: black;
+	font-family: "ocr-a-std", monospace;
+}
+
+#bgCanvas, #charCanvas, #start-menu, #end-menu {
+	display: block;
 	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+#bgCanvas {
   background-color: black;
-  margin-left: 30%;
-  margin-right: 30%;
   z-index: 0;
 }
 
 #charCanvas {
-	position: absolute;
   background-color: transparent;
-  margin-left: 30%;
-  margin-right: 30%;
   z-index: 1;
 }
 
 #start-menu, #end-menu {
+	background-color: black;
 	text-align: center;
 	color: white;
+	padding: 0;
 	font-family: "ocr-a-std", monospace;
-	width: 900px;
-	height: 900px;
+	width: 650px;
+	height: 650px;
 	position: absolute;
   background-color: black;
-  margin-left: 30%;
-  margin-right: 30%;
   z-index: 101;
 }
 
@@ -32,11 +39,11 @@
 }
 
 #start-menu h1 {
-	font-size: 12em;
+	font-size: 8em;
 }
 
 #start-menu h2 {
-	font-size: 6em;
+	font-size: 4em;
 	line-height: 0;
 }
 
@@ -45,6 +52,7 @@
 }
 
 #start-button, #restart-button {
+	text-align: center;
 	line-height: 1em;
 	padding: 1px 40px;
 	background-color: #ff66ff;
@@ -52,27 +60,111 @@
 }
 
 #start-button {
-  width: 20%;
+  width: 160px;
 }
 
 #restart-button {
-  width: 40%;
+  width: 350px;
 }
 
 #start-button:hover, #restart-button:hover {
 	cursor: pointer;
 }
 
+#heads-up-display {
+	background-color: transparent;
+	width: 650px;
+	height: 142px;
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
 #scoreboard {
 	text-align: center;
 	color: white;
-	border: solid green 2px;
+	border: solid green 1px;
 	font-family: "ocr-a-std", monospace;
-	width: 200px;
+	width: 150px;
 	height: 100px;
-	position: absolute;
-  	background-color: black;
-  	margin: 5% 20% 80% 80%;
-  	z-index: 50;	
+	float: right;
+	background-color: black;
+	margin: 20px;
+	padding: 10px;
+	z-index: 50;
 }
 
+#bottom-display {
+	background-color: black;
+	border: 1px solid green;
+	width: 646px;
+	height: 110px;
+	display: block;
+	position: absolute;
+	top: 530px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 50;
+	padding-top: 10px;
+}
+
+#controls, #characters {
+	color: white;
+	float: left;
+	padding: 10px;
+}
+
+#controls {
+	width: 360px;
+}
+
+#controls p {
+	margin: 10px 0 0 0;
+}
+
+#characters {
+	width: 180px;
+}
+
+#up, #down {
+	display: inline-block;
+	margin: 0;
+}
+
+.label, .key {
+	float: left;
+	text-align: center;
+}
+
+.key {
+	height: 36px;
+	width: 36px;
+	border: 1px solid white;
+	margin: 0 2px;
+}
+
+.label {
+	height: 36px;
+	width: 136px;
+}
+
+.character-label, .character-images {
+	height: 36px;
+	float: left;
+}
+
+.character-label {
+	width: 140px;
+}
+
+.character-label p {
+	margin: 10px 0 0 0;
+}
+
+
+#hero {
+	display: inline-block;
+}
