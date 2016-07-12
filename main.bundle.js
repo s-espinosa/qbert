@@ -123,6 +123,7 @@
 	  this.resetScore();
 	  this.resetDifficulty();
 	  this.resetTick();
+	  this.resetScoreboard();
 	  this.reanimate();
 	};
 
@@ -148,8 +149,8 @@
 	Game.prototype.resetQbert = function () {
 	  this.qbert.currentPosition = 0;
 	  this.nextPosition = 0;
-	  this.qbert.x = 450;
-	  this.qbert.y = 180;
+	  this.qbert.x = 325;
+	  this.qbert.y = 60;
 	  this.targetX = 0;
 	  this.xVelocity = 0;
 	  this.yVelocity = 0;
@@ -181,6 +182,11 @@
 	  this.draw.tick = 0;
 	};
 
+	Game.prototype.resetScoreboard = function () {
+	  var scoreDiv = document.getElementById("scoreboard");
+	  scoreDiv.innerHTML = "";
+	};
+
 	module.exports = Game;
 
 /***/ },
@@ -193,6 +199,7 @@
 
 	function Board(params) {
 	  this.cubes = [];
+	  this.level = params['level'];
 	  this.context = params['context'];
 	  this.qbert = params['qbert'];
 	  this.score = params['score'];
@@ -203,8 +210,8 @@
 	    for (var j = 0; j <= i; j++) {
 	      var newParams = {
 	        id: this.cubes.length,
-	        x: 450 - i * 40 + j * 80,
-	        y: 180 + i * 60,
+	        x: 325 - i * 40 + j * 80,
+	        y: 60 + i * 60,
 	        upLeftId: j > 0 ? this.cubes.length - i - 1 : null,
 	        upRightId: j < i ? this.cubes.length - i : null,
 	        downLeftId: this.cubes.length + (i + 1) <= 27 ? this.cubes.length + (i + 1) : null,
@@ -223,7 +230,7 @@
 	  });
 	};
 
-	Board.prototype.drawScore = function () {
+	Board.prototype.drawScoreBoard = function () {
 	  var scoreDiv = document.getElementById('scoreboard');
 	  scoreDiv.innerHTML = "Score: " + this.score.total;
 	};
@@ -232,7 +239,6 @@
 	  this.score.increase(25);
 	  this.cubes[id].active = true;
 	  this.cubes[id].drawCube();
-	  this.drawScore();
 	};
 
 	module.exports = Board;
@@ -299,8 +305,8 @@
 	  this.currentPosition = 0;
 	  this.nextPosition = 0;
 	  this.board = params['board'];
-	  this.x = 450;
-	  this.y = 180;
+	  this.x = 325;
+	  this.y = 60;
 	  this.targetX = 0;
 	  this.xVelocity = 0;
 	  this.yVelocity = 0;
@@ -342,8 +348,8 @@
 	Qbert.prototype.die = function () {
 	  this.lives--;
 	  this.jumping = false;
-	  this.x = 450;
-	  this.y = 180;
+	  this.x = 325;
+	  this.y = 60;
 	  this.xVelocity = 0;
 	  this.yVelocity = 0;
 	  this.currentPosition = 0;
@@ -414,7 +420,7 @@
 	  this.nextPosition = this.newPosition.position;
 	  this.board = params['board'];
 	  this.x = this.newPosition.x;
-	  this.y = 240;
+	  this.y = 120;
 	  this.targetX = 0;
 	  this.xVelocity = 0;
 	  this.yVelocity = 0;
@@ -449,27 +455,6 @@
 	  }
 	};
 
-	// Ball.prototype.setPosition = function() {
-	//   var newPosition = {
-	//     this.position = null;
-	//     this.x = null;
-	//   };
-	//
-	//   var chance = Math.random();
-	//   if (chance > 0.5) {
-	//     newPosition.position = 1;
-	//     newPosition.x = 410;
-	//   } else {
-	//     newPosition.position = 2;
-	//     newPosition.x = 490;
-	//   }
-	//   return newPosition;
-	// };
-	//
-	// Ball.prototype.getXPosition = function() {
-	//   return this.onCube.x;
-	// };
-
 	Ball.prototype.getYPosition = function () {
 	  return this.onCube.y;
 	};
@@ -501,10 +486,15 @@
 
 	Ball.prototype.downLeft = function () {
 	  this.targetX = this.x - 40;
+	  console.log(this.targetX);
 	  this.xVelocity = -2;
+	  console.log(this.xVelocity);
 	  this.yVelocity = -1.75;
+	  console.log(this.yVelocity);
 	  this.jumping = true;
+	  console.log(this.jumping);
 	  this.nextPosition = this.onCube().downLeftId;
+	  console.log(this.nextPosition);
 	};
 
 	Ball.prototype.downRight = function () {
@@ -530,10 +520,10 @@
 	  var chance = Math.random();
 	  if (chance > 0.5) {
 	    newPosition = 1;
-	    newX = 410;
+	    newX = 285;
 	  } else {
 	    newPosition = 2;
-	    newX = 490;
+	    newX = 365;
 	  }
 	  return { position: newPosition, x: newX };
 	};
@@ -555,22 +545,31 @@
 
 	UserInput.prototype.setInput = function () {
 	  window.addEventListener("keydown", keyPress, false);
+	  window.addEventListener("keyup", keyRelease, false);
 
 	  var level = this.level;
 	  var player = this.player;
 	  var context = this.context;
 	  var canvas = this.canvas;
+	  var tKey = document.getElementById("t");
+	  var yKey = document.getElementById("y");
+	  var gKey = document.getElementById("g");
+	  var hKey = document.getElementById("h");
 
 	  function keyPress(e) {
 	    var code = e.keyCode;
 	    if (code === 72) {
 	      player.downRight();
+	      hKey.style.backgroundColor = '#47528B';
 	    } else if (code === 71) {
 	      player.downLeft();
+	      gKey.style.backgroundColor = '#47528B';
 	    } else if (code === 84) {
 	      player.upLeft();
+	      tKey.style.backgroundColor = '#47528B';
 	    } else if (code === 89) {
 	      player.upRight();
+	      yKey.style.backgroundColor = '#47528B';
 	    }
 
 	    if (player.position != null) {
@@ -578,6 +577,20 @@
 	    }
 	    context.clearRect(0, 0, canvas.width, canvas.height);
 	    player.draw();
+	  }
+
+	  function keyRelease(e) {
+	    var code = e.keyCode;
+
+	    if (code === 72) {
+	      hKey.style.backgroundColor = 'black';
+	    } else if (code === 71) {
+	      gKey.style.backgroundColor = 'black';
+	    } else if (code === 84) {
+	      tKey.style.backgroundColor = 'black';
+	    } else if (code === 89) {
+	      yKey.style.backgroundColor = 'black';
+	    }
 	  }
 	};
 
@@ -615,6 +628,7 @@
 	  this.tick++;
 	  this.checkLevel();
 	  this.checkEnd();
+	  this.drawScore();
 	};
 
 	Draw.prototype.clearContext = function () {
@@ -674,6 +688,18 @@
 	    }
 	    this.game.resetLevel();
 	  }
+	};
+
+	Draw.prototype.drawScore = function () {
+	  var scoreDiv = document.getElementById('scoreboard');
+	  var content = "SCORE: " + this.score.total;
+	  scoreDiv.innerHTML = content;
+	};
+
+	Draw.prototype.drawScore = function () {
+	  var scoreDiv = document.getElementById('scoreboard');
+	  var content = "SCORE: " + this.score.total;
+	  scoreDiv.innerHTML = content;
 	};
 
 	Draw.prototype.checkEnd = function () {
@@ -10802,7 +10828,7 @@
 
 	"use strict";
 
-	function Score(params) {
+	function Score() {
 		this.total = 0;
 	}
 
@@ -10813,7 +10839,7 @@
 	Score.prototype.reset = function () {
 		this.total = 0;
 		var scoreDiv = document.getElementById("scoreboard");
-		scoreDiv.innerHTML = "";
+		scoreDiv.innerHTML = "Score: 0";
 	};
 
 	module.exports = Score;
