@@ -61,10 +61,12 @@ body {
 
 #start-button {
   width: 160px;
+  border-radius: 20px;
 }
 
 #restart-button {
   width: 350px;
+  border-radius: 20px;
 }
 
 #start-button:hover, #restart-button:hover, #initials-button:hover {
@@ -192,7 +194,29 @@ body {
 
 #initials {
 	border: 2px dotted;
-	width:
+	width: 100px;
+	height: 50px;
+	background-color: black;
+	color: green;
+	font-size: 30px;
+	border-radius: 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#top-scores {
+	width: 300px;
+	font-size: 30px;
+	/*margin-left: 33%;*/
+}
+
+#score-table {
+	align-self: center;
+}
+
+#scores-col {
+	width: 200px;
+	text-align: right;
 }
 
 .mobile-buttons {
