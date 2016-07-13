@@ -67,7 +67,7 @@ body {
   width: 350px;
 }
 
-#start-button:hover, #restart-button:hover {
+#start-button:hover, #restart-button:hover, #initials-button:hover {
 	cursor: pointer;
 }
 
@@ -103,7 +103,7 @@ body {
 	height: 110px;
 	display: block;
 	position: absolute;
-	top: 530px;
+	top: 536px;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -181,6 +181,20 @@ body {
 	display: none;
 }
 
+#initials-button {
+	background-color: #7b68ee;
+	color: white;
+	text-align: center;
+	width: 10%;
+	line-height: 1em;
+	margin: 0 auto;
+}
+
+#initials {
+	border: 2px dotted;
+	width:
+}
+
 .mobile-buttons {
 	float: left;
 	width: 323px;
@@ -189,9 +203,3 @@ body {
 	font-size: 8em;
 	text-align: center;
 }
-
-/*@media only screen and (max-width: 500px) {
-	#mobile-controls {
-		display: block;
-	}
-}*/
