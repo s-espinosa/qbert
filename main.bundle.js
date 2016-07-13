@@ -54,6 +54,10 @@
 	var endMenu = $("#end-menu");
 	var startButton = document.getElementById("start-button");
 	var restartButton = document.getElementById("restart-button");
+	var initialsButton = document.getElementById("initials-button");
+	var topScores = document.getElementById("top-scores");
+	var topScoresMenu = $("#top-scores");
+	var scoreForm = $("#score-form");
 
 	startButton.addEventListener('click', function () {
 	  startMenu.fadeOut('slow');
@@ -64,6 +68,36 @@
 	restartButton.addEventListener('click', function () {
 	  game.resetGame();
 	  endMenu.fadeOut('slow');
+	});
+
+	initialsButton.addEventListener('click', function () {
+	  var input = {
+	    'player': $('#initials').val(),
+	    'totalScore': $('#game-score').text()
+	  };
+
+	  var lsGames = localStorage.getItem('games') || '[]';
+	  var games = JSON.parse(lsGames);
+
+	  if (input.player !== "") {
+	    games.push(input);
+	    localStorage.setItem('games', JSON.stringify(games));
+	  }
+
+	  games = games.sort(function (a, b) {
+	    return b.totalScore - a.totalScore;
+	  }).slice(0, 5);
+
+	  topScores.innerHTML = "";
+
+	  games.forEach(function (game) {
+	    topScores.innerHTML = topScores.innerHTML + '<li>' + game.player + ": " + game.totalScore + '</li>';
+	  });
+
+	  scoreForm.fadeOut('fast');
+	  topScoresMenu.fadeIn('slow');
+
+	  $('#initials').val("");
 	});
 
 /***/ },
@@ -157,12 +191,12 @@
 
 	Game.prototype.resetQbert = function () {
 	  this.qbert.currentPosition = 0;
-	  this.nextPosition = 0;
+	  this.qbert.nextPosition = 0;
 	  this.qbert.x = 325;
 	  this.qbert.y = 60;
-	  this.targetX = 0;
-	  this.xVelocity = 0;
-	  this.yVelocity = 0;
+	  this.qbert.targetX = 0;
+	  this.qbert.xVelocity = 0;
+	  this.qbert.yVelocity = 0;
 	};
 
 	Game.prototype.resetCharacters = function () {
@@ -738,7 +772,7 @@
 
 	Draw.prototype.checkEnd = function () {
 	  if (this.qbert.lives === 0) {
-	    var endGame = new EndGame();
+	    var endGame = new EndGame(this.score);
 	    endGame.end();
 	  } else {
 	    var self = this;
@@ -758,11 +792,14 @@
 
 	var $ = __webpack_require__(10);
 
-	function EndGame() {
+	function EndGame(score) {
 	  this.endMenu = $("#end-menu");
+	  this.score = score;
 	}
 
 	EndGame.prototype.end = function () {
+	  $('#game-score').text(this.score.total);
+	  $('#score-form').show();
 	  this.endMenu.fadeIn('slow', function () {
 	    clearCharacter();
 	  });
@@ -10872,6 +10909,7 @@
 
 	Score.prototype.reset = function () {
 		this.total = 0;
+
 		var scoreDiv = document.getElementById("scoreboard");
 		scoreDiv.innerHTML = "Score: 0";
 	};
