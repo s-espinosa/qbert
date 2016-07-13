@@ -197,6 +197,7 @@
 	  this.qbert.targetX = 0;
 	  this.qbert.xVelocity = 0;
 	  this.qbert.yVelocity = 0;
+	  this.qbert.jumping = false;
 	};
 
 	Game.prototype.resetCharacters = function () {
@@ -359,11 +360,11 @@
 	}
 
 	Qbert.prototype.update = function () {
-	  if (this.nextPosition === null && this.y < 950) {
+	  if (this.nextPosition === null && this.y < 620) {
 	    this.x += this.xVelocity;
 	    this.y += this.yVelocity;
 	    this.yVelocity += 0.5;
-	  } else if (this.nextPosition === null && this.y > 950) {
+	  } else if (this.nextPosition === null && this.y > 620) {
 	    this.die();
 	  } else if (this.x !== this.targetX) {
 	    this.x += this.xVelocity;
@@ -478,11 +479,11 @@
 	    this.move();
 	  }
 
-	  if (this.nextPosition === null && this.y < 950) {
+	  if (this.nextPosition === null && this.y < 620) {
 	    this.x += this.xVelocity;
 	    this.y += this.yVelocity;
 	    this.yVelocity += 0.5;
-	  } else if (this.nextPosition === null && this.y > 950) {
+	  } else if (this.nextPosition === null && this.y > 620) {
 	    this.die();
 	  } else if (this.x !== this.targetX) {
 	    this.x += this.xVelocity;
@@ -800,6 +801,7 @@
 	EndGame.prototype.end = function () {
 	  $('#game-score').text(this.score.total);
 	  $('#score-form').show();
+	  $('#top-scores').hide();
 	  this.endMenu.fadeIn('slow', function () {
 	    clearCharacter();
 	  });
