@@ -150,12 +150,13 @@
 
 	Game.prototype.resetQbert = function () {
 	  this.qbert.currentPosition = 0;
-	  this.nextPosition = 0;
+	  this.qbert.nextPosition = 0;
 	  this.qbert.x = 325;
 	  this.qbert.y = 60;
-	  this.targetX = 0;
-	  this.xVelocity = 0;
-	  this.yVelocity = 0;
+	  this.qbert.targetX = 0;
+	  this.qbert.xVelocity = 0;
+	  this.qbert.yVelocity = 0;
+	  this.qbert.jumping = false;
 	};
 
 	Game.prototype.resetCharacters = function () {
@@ -318,11 +319,11 @@
 	}
 
 	Qbert.prototype.update = function () {
-	  if (this.nextPosition === null && this.y < 950) {
+	  if (this.nextPosition === null && this.y < 620) {
 	    this.x += this.xVelocity;
 	    this.y += this.yVelocity;
 	    this.yVelocity += 0.5;
-	  } else if (this.nextPosition === null && this.y > 950) {
+	  } else if (this.nextPosition === null && this.y > 620) {
 	    this.die();
 	  } else if (this.x !== this.targetX) {
 	    this.x += this.xVelocity;
@@ -437,11 +438,11 @@
 	    this.move();
 	  }
 
-	  if (this.nextPosition === null && this.y < 950) {
+	  if (this.nextPosition === null && this.y < 620) {
 	    this.x += this.xVelocity;
 	    this.y += this.yVelocity;
 	    this.yVelocity += 0.5;
-	  } else if (this.nextPosition === null && this.y > 950) {
+	  } else if (this.nextPosition === null && this.y > 620) {
 	    this.die();
 	  } else if (this.x !== this.targetX) {
 	    this.x += this.xVelocity;
@@ -731,7 +732,7 @@
 
 	Draw.prototype.checkEnd = function () {
 	  if (this.qbert.lives === 0) {
-	    var endGame = new EndGame();
+	    var endGame = new EndGame(this.score);
 	    endGame.end();
 	  } else {
 	    var self = this;
@@ -751,11 +752,15 @@
 
 	var $ = __webpack_require__(10);
 
-	function EndGame() {
+	function EndGame(score) {
 	  this.endMenu = $("#end-menu");
+	  this.score = score;
 	}
 
 	EndGame.prototype.end = function () {
+	  $('#game-score').text(this.score.total);
+	  $('#score-form').show();
+	  $('#top-scores').hide();
 	  this.endMenu.fadeIn('slow', function () {
 	    clearCharacter();
 	  });
@@ -10865,6 +10870,7 @@
 
 	Score.prototype.reset = function () {
 		this.total = 0;
+
 		var scoreDiv = document.getElementById("scoreboard");
 		scoreDiv.innerHTML = "Score: 0";
 	};
@@ -10895,8 +10901,8 @@
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/sespinos/Documents/web/school/turing/4module/projects/qbert/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/sespinos/Documents/web/school/turing/4module/projects/qbert/node_modules/mocha/mocha.css", function() {
-			var newContent = require("!!/Users/sespinos/Documents/web/school/turing/4module/projects/qbert/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/sespinos/Documents/web/school/turing/4module/projects/qbert/node_modules/mocha/mocha.css");
+		module.hot.accept("!!/Users/lingtran/turing/4module/qbert/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/lingtran/turing/4module/qbert/node_modules/mocha/mocha.css", function() {
+			var newContent = require("!!/Users/lingtran/turing/4module/qbert/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/lingtran/turing/4module/qbert/node_modules/mocha/mocha.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
