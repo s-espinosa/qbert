@@ -97,6 +97,15 @@
 	    canvas: this.charCanvas
 	  });
 	  input.setInput();
+
+	  var viewWidth = document.documentElement.clientWidth;
+	  var viewHeight = document.documentElement.clientHeight;
+	  console.log("width: " + viewWidth + " height: " + viewHeight);
+	  console.log(viewWidth < viewHeight);
+
+	  if (viewWidth < viewHeight) {
+	    input.setMobileInput();
+	  }
 	};
 
 	Game.prototype.startGame = function () {
@@ -585,6 +594,31 @@
 	      yKey.style.backgroundColor = 'black';
 	    }
 	  }
+	};
+
+	UserInput.prototype.setMobileInput = function () {
+	  var mobile = document.getElementById('mobile-controls');
+	  mobile.style.display = 'block';
+	  var upLeft = document.getElementById('mobile-UL');
+	  var upRight = document.getElementById('mobile-UR');
+	  var downLeft = document.getElementById('mobile-DL');
+	  var downRight = document.getElementById('mobile-DR');
+	  var player = this.player;
+
+	  console.log(upRight);
+
+	  upLeft.addEventListener('click', function () {
+	    player.upLeft();
+	  }, false);
+	  upRight.addEventListener('click', function () {
+	    player.upRight();
+	  }, false);
+	  downLeft.addEventListener('click', function () {
+	    player.downLeft();
+	  }, false);
+	  downRight.addEventListener('click', function () {
+	    player.downRight();
+	  }, false);
 	};
 
 	module.exports = UserInput;
