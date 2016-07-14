@@ -21,7 +21,7 @@ body {
   z-index: 1;
 }
 
-#start-menu, #end-menu {
+#start-menu, #end-menu, #fireworks {
 	background-color: black;
 	text-align: center;
 	color: white;
@@ -30,7 +30,6 @@ body {
 	width: 650px;
 	height: 650px;
 	position: absolute;
-  background-color: black;
   z-index: 101;
 }
 
@@ -235,4 +234,36 @@ td.scores-col {
 	height: 323px;
 	font-size: 8em;
 	text-align: center;
+}
+
+#fireworks {
+	background-color: black;
+	display: none;
+	color: pink;
+	height: 100%;
+	width: 100%;
+	opacity: .8;
+	word-wrap: break-word;
+}
+
+#congrats {
+	margin-top: 200px;
+}
+
+#top-left-display {	
+	margin-left: 27%;
+	padding: 0;
+	font-family: "ocr-a-std", monospace;
+	width: 650px;
+	height: 650px;
+	position: absolute;
+  background-color: transparent;
+  z-index: 50;
+}
+
+#lives {
+	margin-top: 10px;
+	width: 200px;
+	height: 100px;
+	z-index: 50;
 }
