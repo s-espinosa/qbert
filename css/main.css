@@ -35,7 +35,8 @@ body {
 }
 
 #end-menu {
-  display: none;
+	font-family: "ocr-a-std", monospace;
+  /*display: none;*/
 }
 
 #start-menu h1 {
@@ -61,12 +62,12 @@ body {
 
 #start-button {
   width: 160px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #restart-button {
   width: 350px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #start-button:hover, #restart-button:hover, #initials-button:hover {
@@ -187,36 +188,44 @@ body {
 	background-color: #7b68ee;
 	color: white;
 	text-align: center;
-	width: 10%;
-	line-height: 1em;
+	vertical-align: center;
+	width: 20%;
 	margin: 0 auto;
+	font-size: 20px;
+	border-radius: 10px;
+	padding: 20px;
 }
 
 #initials {
 	border: 2px dotted;
-	width: 100px;
+	width: 200px;
 	height: 50px;
 	background-color: black;
-	color: green;
+	color: lawngreen;
 	font-size: 30px;
-	border-radius: 20px;
+	border-radius: 10px;
 	text-align: center;
 	text-transform: uppercase;
 }
 
 #top-scores {
-	width: 300px;
 	font-size: 30px;
-	/*margin-left: 33%;*/
+	margin-left: auto;
+	margin-right: auto;
+	align-content: center;
 }
 
-#score-table {
-	align-self: center;
+table#scores-table {
+margin-left: 32%
 }
 
-#scores-col {
-	width: 200px;
-	text-align: right;
+td.names-col {
+	align-content: left;
+}
+
+td.scores-col {
+	width: 250px;
+	align-content: right;
 }
 
 .mobile-buttons {
