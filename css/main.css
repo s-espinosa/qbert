@@ -36,7 +36,7 @@ body {
 
 #end-menu {
 	font-family: "ocr-a-std", monospace;
-  /*display: none;*/
+  display: none;
 }
 
 #start-menu h1 {
