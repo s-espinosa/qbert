@@ -21,7 +21,7 @@ body {
   z-index: 1;
 }
 
-#start-menu, #end-menu {
+#start-menu, #end-menu, #fireworks {
 	background-color: black;
 	text-align: center;
 	color: white;
@@ -202,4 +202,17 @@ body {
 	height: 323px;
 	font-size: 8em;
 	text-align: center;
+}
+
+#fireworks {
+	background-color: black;
+	display: none;
+	color: pink;
+	height: 100%;
+	width: 100%;
+	opacity: .8;
+}
+
+#congrats {
+	margin-top: 200px;
 }
