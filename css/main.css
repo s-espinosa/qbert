@@ -34,6 +34,7 @@ body {
 }
 
 #end-menu {
+	font-family: "ocr-a-std", monospace;
   display: none;
 }
 
@@ -60,10 +61,12 @@ body {
 
 #start-button {
   width: 160px;
+  border-radius: 10px;
 }
 
 #restart-button {
   width: 350px;
+  border-radius: 10px;
 }
 
 #start-button:hover, #restart-button:hover, #initials-button:hover {
@@ -184,14 +187,44 @@ body {
 	background-color: #7b68ee;
 	color: white;
 	text-align: center;
-	width: 10%;
-	line-height: 1em;
+	vertical-align: center;
+	width: 20%;
 	margin: 0 auto;
+	font-size: 20px;
+	border-radius: 10px;
+	padding: 20px;
 }
 
 #initials {
 	border: 2px dotted;
-	width:
+	width: 200px;
+	height: 50px;
+	background-color: black;
+	color: lawngreen;
+	font-size: 30px;
+	border-radius: 10px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#top-scores {
+	font-size: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	align-content: center;
+}
+
+table#scores-table {
+margin-left: 32%
+}
+
+td.names-col {
+	align-content: left;
+}
+
+td.scores-col {
+	width: 250px;
+	align-content: right;
 }
 
 .mobile-buttons {
@@ -210,6 +243,7 @@ body {
 	height: 100%;
 	width: 100%;
 	opacity: .8;
+	word-wrap: break-word;
 }
 
 #congrats {
