@@ -30,7 +30,6 @@ body {
 	width: 650px;
 	height: 650px;
 	position: absolute;
-  background-color: black;
   z-index: 101;
 }
 
@@ -215,4 +214,22 @@ body {
 
 #congrats {
 	margin-top: 200px;
+}
+
+#top-left-display {	
+	margin-left: 27%;
+	padding: 0;
+	font-family: "ocr-a-std", monospace;
+	width: 650px;
+	height: 650px;
+	position: absolute;
+  background-color: transparent;
+  z-index: 50;
+}
+
+#lives {
+	margin-top: 10px;
+	width: 200px;
+	height: 100px;
+	z-index: 50;
 }
